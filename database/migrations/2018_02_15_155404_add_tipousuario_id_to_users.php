@@ -13,10 +13,12 @@ class AddTipousuarioIdToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('tipousuario');
+        Schema::table('users', function(Blueprint $table) {
+
             $table->unsignedInteger('tipousuario_id');
-        });
+            $table->foreign('tipousuario_id')->references('id')->on('tipousuario');
+
+        }); 
     }
 
     /**
@@ -26,9 +28,11 @@ class AddTipousuarioIdToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function(Blueprint $table) {
+
+            $table->dropForeign(['tipousuario_id']);
             $table->dropColumn('tipousuario_id');
-            $table->string('tipousuario', 100)->nullable()->after('password');
+
         });
     }
 }
