@@ -14,7 +14,7 @@ class AddTipousuarioIdToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropComunb('tipousuario');
+            $table->dropColumn('tipousuario');
             $table->unsignedInteger('tipousuario_id');
         });
     }
@@ -27,7 +27,7 @@ class AddTipousuarioIdToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropComunb('tipousuario_id');
+            $table->dropColumn('tipousuario_id');
             $table->string('tipousuario', 100)->nullable()->after('password');
         });
     }

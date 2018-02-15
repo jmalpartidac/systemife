@@ -27,7 +27,7 @@ class AddTipousuarioAUsers extends Migration
     public function down() {
 
         Schema::table('users', function(Blueprint $table) {
-            $table->dropComunb('tipousuario');
+            $table->dropColumn('tipousuario');
 
         });
     }
