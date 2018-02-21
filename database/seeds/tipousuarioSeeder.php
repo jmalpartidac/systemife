@@ -12,6 +12,10 @@ class tipousuarioSeeder extends Seeder
      */
     public function run() {
 
+//        DB::insert('INSERT INTO tipousuario (titulo) VALUES (:titulo)', [
+//            'titulo' => 'Administrador',
+//        ]);
+
         DB::table('tipousuario')->insert([
         	'titulo' => 'Administrador',
         ]);

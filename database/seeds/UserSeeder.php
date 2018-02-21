@@ -10,13 +10,19 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
+    public function run() {
+
+        //$tipousuario = DB::select('SELECT id FROM tipousuario WHERE titulo = ? ', ['Administrador']);
+
+        $tipousuario = db::table('tipousuario')->select('id')->first();
+        //$tipousuario[0]->id
+
         DB::table('users')->insert([
         	'nombres' => 'Jose Manuel',
         	'apellidos' => 'Malpartida Calderon',
         	'email' => 'ing.jmalpartidac@gmail.com',
         	'password' => bcrypt('laravel'), //encriptado
+            'tipousuario_id' => $tipousuario->id,
         ]);
     }
 }
