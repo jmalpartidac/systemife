@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use App\Models\Tipousuario;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,15 +16,15 @@ class UserSeeder extends Seeder
 
         //$tipousuario = DB::select('SELECT id FROM tipousuario WHERE titulo = ? ', ['Administrador']);
 
-        $tipousuario = db::table('tipousuario')->select('id')->first();
+        $tipousuario = Tipousuario::where('titulo', 'Administrador')->value('id');
         //$tipousuario[0]->id
 
-        DB::table('users')->insert([
+        User::create([
         	'nombres' => 'Jose Manuel',
         	'apellidos' => 'Malpartida Calderon',
         	'email' => 'ing.jmalpartidac@gmail.com',
         	'password' => bcrypt('laravel'), //encriptado
-            'tipousuario_id' => $tipousuario->id,
+            'tipousuario_id' => $tipousuario
         ]);
     }
 }

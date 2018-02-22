@@ -16,7 +16,7 @@ class AddTipousuarioIdToUsers extends Migration
         Schema::table('users', function(Blueprint $table) {
 
             $table->unsignedInteger('tipousuario_id')->nullable();
-            $table->foreign('tipousuario_id')->references('id')->on('tipousuario');
+            $table->foreign('tipousuario_id')->references('id')->on('tipousuarios');
 
         }); 
     }

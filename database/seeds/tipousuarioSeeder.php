@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Tipousuario;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -16,16 +17,22 @@ class tipousuarioSeeder extends Seeder
 //            'titulo' => 'Administrador',
 //        ]);
 
-        DB::table('tipousuario')->insert([
-        	'titulo' => 'Administrador',
+
+//        DB::table('tipousuario')->insert([
+//        	'titulo' => 'Administrador',
+//       ]);
+
+        Tipousuario::create([
+            'titulo' => 'Administrador',
         ]);
 
-        DB::table('tipousuario')->insert([
-        	'titulo' => 'Supervisor',
+        Tipousuario::create([
+            'titulo' => 'Supervisor',
         ]);
 
-        DB::table('tipousuario')->insert([
-        	'titulo' => 'Vendedor',
+        Tipousuario::create([
+            'titulo' => 'Vendedor',
         ]);
+
     }
 }
