@@ -34,5 +34,7 @@ class tipousuarioSeeder extends Seeder
             'titulo' => 'Vendedor',
         ]);
 
+        factory(Tipousuario::class)->times(17)->create();
+
     }
 }

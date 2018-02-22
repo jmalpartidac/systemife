@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
 
         //$tipousuario = DB::select('SELECT id FROM tipousuario WHERE titulo = ? ', ['Administrador']);
 
-        $tipousuario = Tipousuario::where('titulo', 'Administrador')->value('id');
+        $tipousuarioid = Tipousuario::where('titulo', 'Administrador')->value('id');
         //$tipousuario[0]->id
 
         User::create([
@@ -24,7 +24,13 @@ class UserSeeder extends Seeder
         	'apellidos' => 'Malpartida Calderon',
         	'email' => 'ing.jmalpartidac@gmail.com',
         	'password' => bcrypt('laravel'), //encriptado
-            'tipousuario_id' => $tipousuario
+            'tipousuario_id' => $tipousuarioid
         ]);
+
+        factory(User::class)->create([
+            'tipousuario_id' => $tipousuarioid,
+        ]); //crea usuario con datos aleatorios pero con tipousuario indicado
+
+        factory(User::class, 48)->create();  //crea usuario con datos aleatorios
     }
 }
